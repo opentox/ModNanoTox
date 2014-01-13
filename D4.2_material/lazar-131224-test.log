@@ -1,0 +1,673 @@
+>>>>>>>>>>>>>>>>>>>>>> Start of nightly test script >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Run ist nightly tests 
+Show ps aux|grep 4s
+ist      31746  0.0  0.1  94172  1628 ?        SNl  04:29   0:00 /home/ist/opentox-ruby/4S/bin/4s-backend opentox
+ist      31751  0.0  0.1  94264  1108 ?        SN   04:29   0:00 /home/ist/opentox-ruby/4S/bin/4s-httpd -p 9088 -s -1 opentox
+ist      31752  0.0  0.2  94400  2944 ?        SN   04:29   0:00 /home/ist/opentox-ruby/4S/bin/4s-httpd -p 9088 -s -1 opentox
+ist      31753  0.0  0.2 119752  2620 ?        SN   04:29   0:00 /home/ist/opentox-ruby/4S/bin/4s-backend opentox
+ist      31755  0.0  0.2 127948  2632 ?        SN   04:29   0:00 /home/ist/opentox-ruby/4S/bin/4s-backend opentox
+Show ps aux|grep unicorn
+ist      31892  0.8  1.2  55976 13704 ?        SNl  04:29   0:00 unicorn master -p 8083                                       
+ist      32052  0.8  1.2  56108 13688 ?        SNl  04:29   0:00 unicorn master -p 8085                                       
+ist      32081  8.2  5.3 424524 56236 ?        SNl  04:29   0:00 unicorn worker[0] -p 8083                                    
+ist      32138  0.8  1.2  55992 13692 ?        SNl  04:29   0:00 unicorn master -p 8086                                       
+ist      32293  4.8  3.7 123496 40136 ?        SNl  04:29   0:00 unicorn worker[0] -p 8085                                    
+ist      32337  4.8  3.7 123400 40096 ?        SNl  04:29   0:00 unicorn worker[0] -p 8086                                    
+ist      32353  1.0  1.2  56108 13704 ?        SNl  04:29   0:00 unicorn master -p 8082                                       
+ist      32437  0.9  1.2  56108 13700 ?        SNl  04:29   0:00 unicorn master -p 8084                                       
+ist      32439  0.9  1.2  55976 13704 ?        SNl  04:29   0:00 unicorn master -p 8081                                       
+ist      32538  0.9  1.2  56108 13688 ?        SNl  04:29   0:00 unicorn master -p 8087                                       
+ist      32585  6.2  4.5 406464 48436 ?        SNl  04:29   0:00 unicorn worker[0] -p 8082                                    
+ist      32591  5.0  3.7 123380 40144 ?        SNl  04:29   0:00 unicorn worker[0] -p 8084                                    
+ist      32594 10.4  5.8 454664 61880 ?        SNl  04:29   0:01 unicorn worker[0] -p 8081                                    
+ist      32605  6.0  4.2 128144 44840 ?        SNl  04:29   0:00 unicorn worker[0] -p 8087                                    
+Run tests 
+=============== Test: algorithm.rb ==================
+Service URI is: https://isttest.opentox.org/algorithm
+Run options: --seed 57226
+
+# Running:
+
+.
+
+Finished in 0.028389s, 35.2252 runs/s, 70.4504 assertions/s.
+
+1 runs, 2 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: descriptor.rb ==================
+Service URI is: https://isttest.opentox.org/algorithm
+Run options: --seed 5104
+
+# Running:
+
+..S.....S
+
+Finished in 92.378119s, 0.0974 runs/s, 0.1840 assertions/s.
+
+9 runs, 17 assertions, 0 failures, 0 errors, 2 skips
+
+You have skipped tests. Run with --verbose for details.
+=============== Test: lazar-long.rb ==================
+Run options: --seed 38602
+
+# Running:
+
+..
+
+Finished in 506.210967s, 0.0040 runs/s, 0.0356 assertions/s.
+
+2 runs, 18 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: validation-short.rb ==================
+Service URI is: https://isttest.opentox.org/validation
+Run options: --seed 61969
+
+# Running:
+
+login and upload datasets
+AA disabled
+uploading file: /home/ist/opentox-ruby/opentox-test/test/data/hamster_carcinogenicity.csv
+uploaded dataset: https://isttest.opentox.org/dataset/a42e6d88-5595-415a-98d8-16ef6ad0d7d7
+...test_crossvalidation_list
+..test_training_test_split /home/ist/opentox-ruby/opentox-test/test/data/hamster_carcinogenicity.csv
+#<OpenTox::Validation:0x007f5cbc65c028 @metadata={"http://www.opentox.org/api/1.2#validationType"=>"training_test_split", "http://www.opentox.org/api/1.2#model"=>"https://isttest.opentox.org/model/547b54eb-032b-4a8b-934f-c38778f8847e", "http://www.opentox.org/api/1.2#algorithm"=>"https://isttest.opentox.org/algorithm/lazar", "http://www.opentox.org/api/1.2#algorithmParams"=>"feature_generation_uri=https://isttest.opentox.org/algorithm/fminer/bbrc", "http://www.opentox.org/api/1.2#trainingDataset"=>"https://isttest.opentox.org/dataset/84382c78-f67d-4383-b9fb-69a9cabd0b30", "http://www.opentox.org/api/1.2#predictionFeature"=>"https://isttest.opentox.org/feature/c6347fb3-bfe1-4bed-b5c0-d221b48a6b4d", "http://www.opentox.org/api/1.2#testDataset"=>"https://isttest.opentox.org/dataset/848bc94c-18e7-49aa-ae23-c054b4b80b80", "http://www.opentox.org/api/1.2#predictionDataset"=>"https://isttest.opentox.org/dataset/fa45a770-3b13-4076-b4cc-c9611c1e5517", "http://purl.org/dc/terms/date"=>"2013-12-24 04:40:15 +0100", "http://www.opentox.org/api/1.2#numInstances"=>"8", "http://www.opentox.org/api/1.2#numWithoutClass"=>"0", "http://www.opentox.org/api/1.2#numUnpredicted"=>"0", "http://www.opentox.org/api/1.2#realRuntime"=>"49.309602154", "http://www.opentox.org/api/1.2#percentWithoutClass"=>"0.0", "http://www.opentox.org/api/1.2#percentUnpredicted"=>"0.0", "http://www.opentox.org/api/1.2#classificationStatistics"=>{"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassificationStatistics", "http://www.opentox.org/api/1.2#numCorrect"=>6, "http://www.opentox.org/api/1.2#numIncorrect"=>2, "http://www.opentox.org/api/1.2#confusionMatrix"=>{"http://www.opentox.org/api/1.2#confusionMatrixCell"=>[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>2}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>2}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>0}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>4}], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrix"}, "http://www.opentox.org/api/1.2#percentCorrect"=>75.0, "http://www.opentox.org/api/1.2#percentIncorrect"=>25.0, "http://www.opentox.org/api/1.2#averageAreaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#accuracy"=>0.75, "http://www.opentox.org/api/1.2#weightedAccuracy"=>0.8484237121044902, "http://www.opentox.org/api/1.2#classValueStatistics"=>[{"http://www.opentox.org/api/1.2#classValue"=>"false", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassValueStatistics", "http://www.opentox.org/api/1.2#numFalsePositives"=>0, "http://www.opentox.org/api/1.2#numFalseNegatives"=>2, "http://www.opentox.org/api/1.2#numTruePositives"=>2, "http://www.opentox.org/api/1.2#numTrueNegatives"=>4, "http://www.opentox.org/api/1.2#areaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#falseNegativeRate"=>0.5, "http://www.opentox.org/api/1.2#falsePositiveRate"=>0.0, "http://www.opentox.org/api/1.2#fMeasure"=>0.6666666666666666, "http://www.opentox.org/api/1.2#positivePredictiveValue"=>1.0, "http://www.opentox.org/api/1.2#negativePredictiveValue"=>0.6666666666666666, "http://www.opentox.org/api/1.2#trueNegativeRate"=>1.0, "http://www.opentox.org/api/1.2#truePositiveRate"=>0.5}, {"http://www.opentox.org/api/1.2#classValue"=>"true", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassValueStatistics", "http://www.opentox.org/api/1.2#numFalsePositives"=>2, "http://www.opentox.org/api/1.2#numFalseNegatives"=>0, "http://www.opentox.org/api/1.2#numTruePositives"=>4, "http://www.opentox.org/api/1.2#numTrueNegatives"=>2, "http://www.opentox.org/api/1.2#areaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#falseNegativeRate"=>0.0, "http://www.opentox.org/api/1.2#falsePositiveRate"=>0.5, "http://www.opentox.org/api/1.2#fMeasure"=>0.8, "http://www.opentox.org/api/1.2#positivePredictiveValue"=>0.6666666666666666, "http://www.opentox.org/api/1.2#negativePredictiveValue"=>1.0, "http://www.opentox.org/api/1.2#trueNegativeRate"=>0.5, "http://www.opentox.org/api/1.2#truePositiveRate"=>1.0}]}}, @uri="https://isttest.opentox.org/validation/1">
+OpenTox::Validation
+http://purl.org/dc/terms/date
+{"http://www.opentox.org/api/1.2#validationType"=>"training_test_split", "http://www.opentox.org/api/1.2#model"=>"https://isttest.opentox.org/model/547b54eb-032b-4a8b-934f-c38778f8847e", "http://www.opentox.org/api/1.2#algorithm"=>"https://isttest.opentox.org/algorithm/lazar", "http://www.opentox.org/api/1.2#algorithmParams"=>"feature_generation_uri=https://isttest.opentox.org/algorithm/fminer/bbrc", "http://www.opentox.org/api/1.2#trainingDataset"=>"https://isttest.opentox.org/dataset/84382c78-f67d-4383-b9fb-69a9cabd0b30", "http://www.opentox.org/api/1.2#predictionFeature"=>"https://isttest.opentox.org/feature/c6347fb3-bfe1-4bed-b5c0-d221b48a6b4d", "http://www.opentox.org/api/1.2#testDataset"=>"https://isttest.opentox.org/dataset/848bc94c-18e7-49aa-ae23-c054b4b80b80", "http://www.opentox.org/api/1.2#predictionDataset"=>"https://isttest.opentox.org/dataset/fa45a770-3b13-4076-b4cc-c9611c1e5517", "http://purl.org/dc/terms/date"=>"2013-12-24 04:40:15 +0100", "http://www.opentox.org/api/1.2#numInstances"=>"8", "http://www.opentox.org/api/1.2#numWithoutClass"=>"0", "http://www.opentox.org/api/1.2#numUnpredicted"=>"0", "http://www.opentox.org/api/1.2#realRuntime"=>"49.309602154", "http://www.opentox.org/api/1.2#percentWithoutClass"=>"0.0", "http://www.opentox.org/api/1.2#percentUnpredicted"=>"0.0", "http://www.opentox.org/api/1.2#classificationStatistics"=>{"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassificationStatistics", "http://www.opentox.org/api/1.2#numCorrect"=>6, "http://www.opentox.org/api/1.2#numIncorrect"=>2, "http://www.opentox.org/api/1.2#confusionMatrix"=>{"http://www.opentox.org/api/1.2#confusionMatrixCell"=>[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>2}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>2}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>0}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>4}], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrix"}, "http://www.opentox.org/api/1.2#percentCorrect"=>75.0, "http://www.opentox.org/api/1.2#percentIncorrect"=>25.0, "http://www.opentox.org/api/1.2#averageAreaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#accuracy"=>0.75, "http://www.opentox.org/api/1.2#weightedAccuracy"=>0.8484237121044902, "http://www.opentox.org/api/1.2#classValueStatistics"=>[{"http://www.opentox.org/api/1.2#classValue"=>"false", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassValueStatistics", "http://www.opentox.org/api/1.2#numFalsePositives"=>0, "http://www.opentox.org/api/1.2#numFalseNegatives"=>2, "http://www.opentox.org/api/1.2#numTruePositives"=>2, "http://www.opentox.org/api/1.2#numTrueNegatives"=>4, "http://www.opentox.org/api/1.2#areaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#falseNegativeRate"=>0.5, "http://www.opentox.org/api/1.2#falsePositiveRate"=>0.0, "http://www.opentox.org/api/1.2#fMeasure"=>0.6666666666666666, "http://www.opentox.org/api/1.2#positivePredictiveValue"=>1.0, "http://www.opentox.org/api/1.2#negativePredictiveValue"=>0.6666666666666666, "http://www.opentox.org/api/1.2#trueNegativeRate"=>1.0, "http://www.opentox.org/api/1.2#truePositiveRate"=>0.5}, {"http://www.opentox.org/api/1.2#classValue"=>"true", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassValueStatistics", "http://www.opentox.org/api/1.2#numFalsePositives"=>2, "http://www.opentox.org/api/1.2#numFalseNegatives"=>0, "http://www.opentox.org/api/1.2#numTruePositives"=>4, "http://www.opentox.org/api/1.2#numTrueNegatives"=>2, "http://www.opentox.org/api/1.2#areaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#falseNegativeRate"=>0.0, "http://www.opentox.org/api/1.2#falsePositiveRate"=>0.5, "http://www.opentox.org/api/1.2#fMeasure"=>0.8, "http://www.opentox.org/api/1.2#positivePredictiveValue"=>0.6666666666666666, "http://www.opentox.org/api/1.2#negativePredictiveValue"=>1.0, "http://www.opentox.org/api/1.2#trueNegativeRate"=>0.5, "http://www.opentox.org/api/1.2#truePositiveRate"=>1.0}]}}
+..test_validation_list
+.test_validation_report
+OpenTox::ValidationReport
+http://purl.org/dc/terms/date
+{"http://purl.org/dc/terms/date"=>"2013-12-24 04:43:32 +0100", "http://www.opentox.org/api/1.2#reportType"=>"validation", "http://www.opentox.org/api/1.2#validation"=>"[\"https://isttest.opentox.org/validation/1\"]", "http://www.opentox.org/api/1.2#crossvalidation"=>"[]", "http://www.opentox.org/api/1.2#algorithm"=>"[\"https://isttest.opentox.org/algorithm/lazar\"]", "http://www.opentox.org/api/1.2#model"=>"[\"https://isttest.opentox.org/model/547b54eb-032b-4a8b-934f-c38778f8847e\"]"}
+delete and logout
+.
+
+Finished in 255.044736s, 0.0353 runs/s, 0.0902 assertions/s.
+
+9 runs, 23 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: authorization.rb ==================
+Run options: --seed 50472
+
+# Running:
+
+SSSSSSSSSSSS
+
+Finished in 1.556298s, 7.7106 runs/s, 0.0000 assertions/s.
+
+12 runs, 0 assertions, 0 failures, 0 errors, 12 skips
+
+You have skipped tests. Run with --verbose for details.
+=============== Test: edit_objects.rb ==================
+Run options: --seed 3416
+
+# Running:
+
+.
+
+Finished in 0.827024s, 1.2092 runs/s, 4.8366 assertions/s.
+
+1 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: lazar-physchem.rb ==================
+Run options: --seed 56973
+
+# Running:
+
+https://isttest.opentox.org/model/7b015ac1-304a-4f56-816d-33c394426c1b
+https://isttest.opentox.org/dataset/2c27ff89-bb6c-456a-a626-bda8b259cbfd
+.
+
+Finished in 94.894968s, 0.0105 runs/s, 0.0316 assertions/s.
+
+1 runs, 3 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: store_query.rb ==================
+Run options: --seed 43462
+
+# Running:
+
+........
+
+Finished in 68.459745s, 0.1169 runs/s, 4.7911 assertions/s.
+
+8 runs, 328 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: validation_util.rb ==================
+=============== Test: compound.rb ==================
+Service URI is: https://isttest.opentox.org/compound
+Run options: --seed 18307
+
+# Running:
+
+https://isttest.opentox.org/compound/InChI=1S/C6H6/c1-2-4-6-5-3-1/h1-6H
+.........
+
+Finished in 23.957268s, 0.3757 runs/s, 0.6261 assertions/s.
+
+9 runs, 15 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: error.rb ==================
+Run options: --seed 50182
+
+# Running:
+
+....
+
+Finished in 0.490815s, 8.1497 runs/s, 10.1871 assertions/s.
+
+4 runs, 5 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: lazarweb.rb ==================
+Run options: --seed 27987
+
+# Running:
+
+.
+
+Finished in 0.130576s, 7.6584 runs/s, 45.9503 assertions/s.
+
+1 runs, 6 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: task.rb ==================
+Service URI is: https://isttest.opentox.org/task
+Run options: --seed 58295
+
+# Running:
+
+.F....F....F.
+
+Finished in 291.858847s, 0.0445 runs/s, 0.4591 assertions/s.
+
+  1) Failure:
+TaskTest#test_06_create_and_fail_with_not_found_error [task.rb:104]:
+Expected: "Running"
+  Actual: "Error"
+
+
+  2) Failure:
+TaskTest#test_12_non_runtime_errors [task.rb:245]:
+Expected: "Running"
+  Actual: "Error"
+
+
+  3) Failure:
+TaskTest#test_01_create_and_complete [task.rb:29]:
+Expected: "Running"
+  Actual: "Completed"
+
+13 runs, 134 assertions, 3 failures, 0 errors, 0 skips
+=============== Test: dataset-long.rb ==================
+Service URI is: https://isttest.opentox.org/dataset
+Run options: --seed 4638
+
+# Running:
+
+https://isttest.opentox.org/dataset/93d8e7ed-6f04-4ba8-af98-f7cd82aad3a4
+.....
+
+Finished in 99.628948s, 0.0502 runs/s, 0.4517 assertions/s.
+
+5 runs, 45 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: feature.rb ==================
+Run options: --seed 25689
+
+# Running:
+
+..Create SPARQL: 0.000181256
+Query: 0.078602547
+Found: 6.366e-05
+.
+
+Finished in 37.087133s, 0.0809 runs/s, 1.9953 assertions/s.
+
+3 runs, 74 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: model.rb ==================
+Service URI is: https://isttest.opentox.org/model
+Run options: --seed 12542
+
+# Running:
+
+.https://isttest.opentox.org/model/b4e5fd0c-11cf-4832-aee8-2298e944018d
+.
+
+Finished in 7.191348s, 0.2781 runs/s, 2.0858 assertions/s.
+
+2 runs, 15 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: dataset.rb ==================
+Run options: --seed 26612
+
+# Running:
+
+............
+
+Finished in 169.002907s, 0.0710 runs/s, 0.6154 assertions/s.
+
+12 runs, 104 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: fminer.rb ==================
+Run options: --seed 21284
+
+# Running:
+
+..
+
+Finished in 173.419030s, 0.0115 runs/s, 26.5253 assertions/s.
+
+2 runs, 4600 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: policy.rb ==================
+Run options: --seed 17807
+
+# Running:
+
+SS....
+
+Finished in 0.036919s, 162.5168 runs/s, 1137.6177 assertions/s.
+
+6 runs, 42 assertions, 0 failures, 0 errors, 2 skips
+
+You have skipped tests. Run with --verbose for details.
+=============== Test: urilist.rb ==================
+Run options: --seed 7756
+
+# Running:
+
+..
+
+Finished in 10.376198s, 0.1927 runs/s, 2.2166 assertions/s.
+
+2 runs, 23 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: descriptor-long.rb ==================
+Service URI is: https://isttest.opentox.org/algorithm
+Run options: --seed 47649
+
+# Running:
+
+.
+
+Finished in 893.057292s, 0.0011 runs/s, 0.0022 assertions/s.
+
+1 runs, 2 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: lazar-fminer.rb ==================
+Run options: --seed 10146
+
+# Running:
+
+.
+
+Finished in 305.779800s, 0.0033 runs/s, 0.0458 assertions/s.
+
+1 runs, 14 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: service_check.rb ==================
+Service URIs are:
+https://isttest.opentox.org/algorithm
+https://isttest.opentox.org/compound
+https://isttest.opentox.org/dataset
+https://isttest.opentox.org/feature
+https://isttest.opentox.org/model
+https://isttest.opentox.org/task
+https://isttest.opentox.org/validation
+Run options: --seed 15994
+
+# Running:
+
+.......
+
+Finished in 5.679718s, 1.2325 runs/s, 1.2325 assertions/s.
+
+7 runs, 7 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: validation-long.rb ==================
+Service URI is: https://isttest.opentox.org/validation
+Run options: --seed 5334
+
+# Running:
+
+login and upload datasets
+AA disabled
+uploading file: /home/ist/opentox-ruby/opentox-test/test/data/hamster_carcinogenicity.csv
+uploaded dataset: https://isttest.opentox.org/dataset/046ee084-9f4c-4cea-b62c-39b23304eadd
+file already uploaded: https://isttest.opentox.org/dataset/046ee084-9f4c-4cea-b62c-39b23304eadd
+.test_crossvalidation /home/ist/opentox-ruby/opentox-test/test/data/hamster_carcinogenicity.csv bbrc
+OpenTox::Crossvalidation
+http://purl.org/dc/terms/date
+{"http://www.opentox.org/api/1.2#algorithm"=>"https://isttest.opentox.org/algorithm/lazar", "http://www.opentox.org/api/1.2#algorithmParams"=>"feature_generation_uri=https://isttest.opentox.org/algorithm/fminer/bbrc", "http://www.opentox.org/api/1.2#predictionFeature"=>"https://isttest.opentox.org/feature/c6347fb3-bfe1-4bed-b5c0-d221b48a6b4d", "http://purl.org/dc/terms/date"=>"2013-12-24 05:20:43 +0100", "http://www.opentox.org/api/1.2#dataset"=>"https://isttest.opentox.org/dataset/046ee084-9f4c-4cea-b62c-39b23304eadd", "http://www.opentox.org/api/1.2#numFolds"=>"10", "http://www.opentox.org/api/1.2#stratified"=>"false", "http://www.opentox.org/api/1.2#randomSeed"=>"1", "http://www.opentox.org/api/1.2#validation"=>["https://isttest.opentox.org/validation/2", "https://isttest.opentox.org/validation/3", "https://isttest.opentox.org/validation/4", "https://isttest.opentox.org/validation/5", "https://isttest.opentox.org/validation/6", "https://isttest.opentox.org/validation/7", "https://isttest.opentox.org/validation/8", "https://isttest.opentox.org/validation/9", "https://isttest.opentox.org/validation/10", "https://isttest.opentox.org/validation/11"]}
+..test_crossvalidation_list
+.test_crossvalidation_report
+OpenTox::CrossvalidationReport
+http://purl.org/dc/terms/date
+{"http://purl.org/dc/terms/date"=>"2013-12-24 05:31:45 +0100", "http://www.opentox.org/api/1.2#reportType"=>"crossvalidation", "http://www.opentox.org/api/1.2#validation"=>"[\"https://isttest.opentox.org/validation/2\", \"https://isttest.opentox.org/validation/3\", \"https://isttest.opentox.org/validation/4\", \"https://isttest.opentox.org/validation/5\", \"https://isttest.opentox.org/validation/6\", \"https://isttest.opentox.org/validation/7\", \"https://isttest.opentox.org/validation/8\", \"https://isttest.opentox.org/validation/9\", \"https://isttest.opentox.org/validation/10\", \"https://isttest.opentox.org/validation/11\"]", "http://www.opentox.org/api/1.2#crossvalidation"=>"[\"https://isttest.opentox.org/validation/crossvalidation/1\"]", "http://www.opentox.org/api/1.2#algorithm"=>"[\"https://isttest.opentox.org/algorithm/lazar\"]", "http://www.opentox.org/api/1.2#model"=>"[\"https://isttest.opentox.org/model/e98659d8-1d7b-44d4-939e-8d44130987fd\", \"https://isttest.opentox.org/model/9b9dfee3-dfe2-402f-9d81-ec4ff6b64ada\", \"https://isttest.opentox.org/model/7ce67ae1-e9d0-464b-9b3c-4902b1d069e8\", \"https://isttest.opentox.org/model/e3d9ffbd-0004-455b-8b5e-2b01ad7d6208\", \"https://isttest.opentox.org/model/309fde5b-8590-43e4-bca7-e2d60863986f\", \"https://isttest.opentox.org/model/3daff57d-7435-4529-a97e-ee29e71a806c\", \"https://isttest.opentox.org/model/62097b4e-8cc7-4bd3-adb7-9f38dac13a12\", \"https://isttest.opentox.org/model/2be1db1f-8443-41f5-8fb8-35a54ebe70f6\", \"https://isttest.opentox.org/model/7ffa89c5-e097-48cb-973c-ad84d588bba9\", \"https://isttest.opentox.org/model/770ef67f-2400-4fc9-8719-63dc7bbc4cf7\"]"}
+.test_training_test_split /home/ist/opentox-ruby/opentox-test/test/data/hamster_carcinogenicity.csv
+#<OpenTox::Validation:0x007f47b1656b98 @metadata={"http://www.opentox.org/api/1.2#validationType"=>"training_test_split", "http://www.opentox.org/api/1.2#model"=>"https://isttest.opentox.org/model/a9f8aaee-7837-4446-9323-e0be64ac1f52", "http://www.opentox.org/api/1.2#algorithm"=>"https://isttest.opentox.org/algorithm/lazar", "http://www.opentox.org/api/1.2#algorithmParams"=>"feature_generation_uri=https://isttest.opentox.org/algorithm/fminer/bbrc", "http://www.opentox.org/api/1.2#trainingDataset"=>"https://isttest.opentox.org/dataset/1b67680d-265f-4775-aa86-c864f8bb5ea8", "http://www.opentox.org/api/1.2#predictionFeature"=>"https://isttest.opentox.org/feature/c6347fb3-bfe1-4bed-b5c0-d221b48a6b4d", "http://www.opentox.org/api/1.2#testDataset"=>"https://isttest.opentox.org/dataset/2bbc4f5c-e72a-405a-8098-0ef089b22b1e", "http://www.opentox.org/api/1.2#predictionDataset"=>"https://isttest.opentox.org/dataset/5c53a77b-2d4c-48bf-8071-e2ccaf19813d", "http://purl.org/dc/terms/date"=>"2013-12-24 05:31:55 +0100", "http://www.opentox.org/api/1.2#numInstances"=>"8", "http://www.opentox.org/api/1.2#numWithoutClass"=>"0", "http://www.opentox.org/api/1.2#numUnpredicted"=>"0", "http://www.opentox.org/api/1.2#realRuntime"=>"26.940727567", "http://www.opentox.org/api/1.2#percentWithoutClass"=>"0.0", "http://www.opentox.org/api/1.2#percentUnpredicted"=>"0.0", "http://www.opentox.org/api/1.2#classificationStatistics"=>{"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassificationStatistics", "http://www.opentox.org/api/1.2#numCorrect"=>6, "http://www.opentox.org/api/1.2#numIncorrect"=>2, "http://www.opentox.org/api/1.2#confusionMatrix"=>{"http://www.opentox.org/api/1.2#confusionMatrixCell"=>[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>2}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>2}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>0}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>4}], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrix"}, "http://www.opentox.org/api/1.2#percentCorrect"=>75.0, "http://www.opentox.org/api/1.2#percentIncorrect"=>25.0, "http://www.opentox.org/api/1.2#averageAreaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#accuracy"=>0.75, "http://www.opentox.org/api/1.2#weightedAccuracy"=>0.8484237121044902, "http://www.opentox.org/api/1.2#classValueStatistics"=>[{"http://www.opentox.org/api/1.2#classValue"=>"false", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassValueStatistics", "http://www.opentox.org/api/1.2#numFalsePositives"=>0, "http://www.opentox.org/api/1.2#numFalseNegatives"=>2, "http://www.opentox.org/api/1.2#numTruePositives"=>2, "http://www.opentox.org/api/1.2#numTrueNegatives"=>4, "http://www.opentox.org/api/1.2#areaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#falseNegativeRate"=>0.5, "http://www.opentox.org/api/1.2#falsePositiveRate"=>0.0, "http://www.opentox.org/api/1.2#fMeasure"=>0.6666666666666666, "http://www.opentox.org/api/1.2#positivePredictiveValue"=>1.0, "http://www.opentox.org/api/1.2#negativePredictiveValue"=>0.6666666666666666, "http://www.opentox.org/api/1.2#trueNegativeRate"=>1.0, "http://www.opentox.org/api/1.2#truePositiveRate"=>0.5}, {"http://www.opentox.org/api/1.2#classValue"=>"true", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassValueStatistics", "http://www.opentox.org/api/1.2#numFalsePositives"=>2, "http://www.opentox.org/api/1.2#numFalseNegatives"=>0, "http://www.opentox.org/api/1.2#numTruePositives"=>4, "http://www.opentox.org/api/1.2#numTrueNegatives"=>2, "http://www.opentox.org/api/1.2#areaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#falseNegativeRate"=>0.0, "http://www.opentox.org/api/1.2#falsePositiveRate"=>0.5, "http://www.opentox.org/api/1.2#fMeasure"=>0.8, "http://www.opentox.org/api/1.2#positivePredictiveValue"=>0.6666666666666666, "http://www.opentox.org/api/1.2#negativePredictiveValue"=>1.0, "http://www.opentox.org/api/1.2#trueNegativeRate"=>0.5, "http://www.opentox.org/api/1.2#truePositiveRate"=>1.0}]}}, @uri="https://isttest.opentox.org/validation/13">
+OpenTox::Validation
+http://purl.org/dc/terms/date
+{"http://www.opentox.org/api/1.2#validationType"=>"training_test_split", "http://www.opentox.org/api/1.2#model"=>"https://isttest.opentox.org/model/a9f8aaee-7837-4446-9323-e0be64ac1f52", "http://www.opentox.org/api/1.2#algorithm"=>"https://isttest.opentox.org/algorithm/lazar", "http://www.opentox.org/api/1.2#algorithmParams"=>"feature_generation_uri=https://isttest.opentox.org/algorithm/fminer/bbrc", "http://www.opentox.org/api/1.2#trainingDataset"=>"https://isttest.opentox.org/dataset/1b67680d-265f-4775-aa86-c864f8bb5ea8", "http://www.opentox.org/api/1.2#predictionFeature"=>"https://isttest.opentox.org/feature/c6347fb3-bfe1-4bed-b5c0-d221b48a6b4d", "http://www.opentox.org/api/1.2#testDataset"=>"https://isttest.opentox.org/dataset/2bbc4f5c-e72a-405a-8098-0ef089b22b1e", "http://www.opentox.org/api/1.2#predictionDataset"=>"https://isttest.opentox.org/dataset/5c53a77b-2d4c-48bf-8071-e2ccaf19813d", "http://purl.org/dc/terms/date"=>"2013-12-24 05:31:55 +0100", "http://www.opentox.org/api/1.2#numInstances"=>"8", "http://www.opentox.org/api/1.2#numWithoutClass"=>"0", "http://www.opentox.org/api/1.2#numUnpredicted"=>"0", "http://www.opentox.org/api/1.2#realRuntime"=>"26.940727567", "http://www.opentox.org/api/1.2#percentWithoutClass"=>"0.0", "http://www.opentox.org/api/1.2#percentUnpredicted"=>"0.0", "http://www.opentox.org/api/1.2#classificationStatistics"=>{"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassificationStatistics", "http://www.opentox.org/api/1.2#numCorrect"=>6, "http://www.opentox.org/api/1.2#numIncorrect"=>2, "http://www.opentox.org/api/1.2#confusionMatrix"=>{"http://www.opentox.org/api/1.2#confusionMatrixCell"=>[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>2}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>2}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>0}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>4}], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrix"}, "http://www.opentox.org/api/1.2#percentCorrect"=>75.0, "http://www.opentox.org/api/1.2#percentIncorrect"=>25.0, "http://www.opentox.org/api/1.2#averageAreaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#accuracy"=>0.75, "http://www.opentox.org/api/1.2#weightedAccuracy"=>0.8484237121044902, "http://www.opentox.org/api/1.2#classValueStatistics"=>[{"http://www.opentox.org/api/1.2#classValue"=>"false", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassValueStatistics", "http://www.opentox.org/api/1.2#numFalsePositives"=>0, "http://www.opentox.org/api/1.2#numFalseNegatives"=>2, "http://www.opentox.org/api/1.2#numTruePositives"=>2, "http://www.opentox.org/api/1.2#numTrueNegatives"=>4, "http://www.opentox.org/api/1.2#areaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#falseNegativeRate"=>0.5, "http://www.opentox.org/api/1.2#falsePositiveRate"=>0.0, "http://www.opentox.org/api/1.2#fMeasure"=>0.6666666666666666, "http://www.opentox.org/api/1.2#positivePredictiveValue"=>1.0, "http://www.opentox.org/api/1.2#negativePredictiveValue"=>0.6666666666666666, "http://www.opentox.org/api/1.2#trueNegativeRate"=>1.0, "http://www.opentox.org/api/1.2#truePositiveRate"=>0.5}, {"http://www.opentox.org/api/1.2#classValue"=>"true", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassValueStatistics", "http://www.opentox.org/api/1.2#numFalsePositives"=>2, "http://www.opentox.org/api/1.2#numFalseNegatives"=>0, "http://www.opentox.org/api/1.2#numTruePositives"=>4, "http://www.opentox.org/api/1.2#numTrueNegatives"=>2, "http://www.opentox.org/api/1.2#areaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#falseNegativeRate"=>0.0, "http://www.opentox.org/api/1.2#falsePositiveRate"=>0.5, "http://www.opentox.org/api/1.2#fMeasure"=>0.8, "http://www.opentox.org/api/1.2#positivePredictiveValue"=>0.6666666666666666, "http://www.opentox.org/api/1.2#negativePredictiveValue"=>1.0, "http://www.opentox.org/api/1.2#trueNegativeRate"=>0.5, "http://www.opentox.org/api/1.2#truePositiveRate"=>1.0}]}}
+..test_validation_list
+.test_validation_report
+OpenTox::ValidationReport
+http://purl.org/dc/terms/date
+{"http://purl.org/dc/terms/date"=>"2013-12-24 05:32:59 +0100", "http://www.opentox.org/api/1.2#reportType"=>"validation", "http://www.opentox.org/api/1.2#validation"=>"[\"https://isttest.opentox.org/validation/13\"]", "http://www.opentox.org/api/1.2#crossvalidation"=>"[]", "http://www.opentox.org/api/1.2#algorithm"=>"[\"https://isttest.opentox.org/algorithm/lazar\"]", "http://www.opentox.org/api/1.2#model"=>"[\"https://isttest.opentox.org/model/a9f8aaee-7837-4446-9323-e0be64ac1f52\"]"}
+delete and logout
+.
+
+Finished in 756.223640s, 0.0119 runs/s, 0.0714 assertions/s.
+
+9 runs, 54 assertions, 0 failures, 0 errors, 0 skips
+Add AA config to test.rb to test A&A
+==========================================
+Restart Services and repeat tests with A&A
+==========================================
+=============== Test: algorithm.rb ==================
+Service URI is: https://isttest.opentox.org/algorithm
+Run options: --seed 34071
+
+# Running:
+
+.
+
+Finished in 0.004739s, 211.0155 runs/s, 422.0310 assertions/s.
+
+1 runs, 2 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: descriptor.rb ==================
+Service URI is: https://isttest.opentox.org/algorithm
+Run options: --seed 33339
+
+# Running:
+
+S.....S..
+
+Finished in 60.830839s, 0.1480 runs/s, 0.2795 assertions/s.
+
+9 runs, 17 assertions, 0 failures, 0 errors, 2 skips
+
+You have skipped tests. Run with --verbose for details.
+=============== Test: lazar-long.rb ==================
+Run options: --seed 52452
+
+# Running:
+
+..
+
+Finished in 150.163224s, 0.0133 runs/s, 0.1199 assertions/s.
+
+2 runs, 18 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: validation-short.rb ==================
+Service URI is: https://isttest.opentox.org/validation
+Run options: --seed 37733
+
+# Running:
+
+login and upload datasets
+logged in: AQIC5wM2LY4SfcyxoN8Hbb5TitY1qWkTNDihR5_c6WVb6Dw.*AAJTSQACMDE.*
+uploading file: /home/ist/opentox-ruby/opentox-test/test/data/hamster_carcinogenicity.csv
+uploaded dataset: https://isttest.opentox.org/dataset/6d77fee5-6044-4795-8776-6159ea4deac5
+...test_crossvalidation_list
+..test_training_test_split /home/ist/opentox-ruby/opentox-test/test/data/hamster_carcinogenicity.csv
+#<OpenTox::Validation:0x007f907d605878 @metadata={"http://www.opentox.org/api/1.2#validationType"=>"training_test_split", "http://www.opentox.org/api/1.2#model"=>"https://isttest.opentox.org/model/40c5c304-ca40-481f-9443-90987596288d", "http://www.opentox.org/api/1.2#algorithm"=>"https://isttest.opentox.org/algorithm/lazar", "http://www.opentox.org/api/1.2#algorithmParams"=>"feature_generation_uri=https://isttest.opentox.org/algorithm/fminer/bbrc", "http://www.opentox.org/api/1.2#trainingDataset"=>"https://isttest.opentox.org/dataset/901c23b1-43ad-4d98-a1a1-6d9d3ed7f192", "http://www.opentox.org/api/1.2#predictionFeature"=>"https://isttest.opentox.org/feature/c6347fb3-bfe1-4bed-b5c0-d221b48a6b4d", "http://www.opentox.org/api/1.2#testDataset"=>"https://isttest.opentox.org/dataset/eabf12a7-5066-4343-902e-b3b4657aa5bf", "http://www.opentox.org/api/1.2#predictionDataset"=>"https://isttest.opentox.org/dataset/9e9956a9-613b-4547-9caa-4b8bee3aebe2", "http://purl.org/dc/terms/date"=>"2013-12-24 05:37:47 +0100", "http://www.opentox.org/api/1.2#numInstances"=>"8", "http://www.opentox.org/api/1.2#numWithoutClass"=>"0", "http://www.opentox.org/api/1.2#numUnpredicted"=>"0", "http://www.opentox.org/api/1.2#realRuntime"=>"12.911741033", "http://www.opentox.org/api/1.2#percentWithoutClass"=>"0.0", "http://www.opentox.org/api/1.2#percentUnpredicted"=>"0.0", "http://www.opentox.org/api/1.2#classificationStatistics"=>{"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassificationStatistics", "http://www.opentox.org/api/1.2#numCorrect"=>6, "http://www.opentox.org/api/1.2#numIncorrect"=>2, "http://www.opentox.org/api/1.2#confusionMatrix"=>{"http://www.opentox.org/api/1.2#confusionMatrixCell"=>[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>2}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>2}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>0}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>4}], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrix"}, "http://www.opentox.org/api/1.2#percentCorrect"=>75.0, "http://www.opentox.org/api/1.2#percentIncorrect"=>25.0, "http://www.opentox.org/api/1.2#averageAreaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#accuracy"=>0.75, "http://www.opentox.org/api/1.2#weightedAccuracy"=>0.8484237121044902, "http://www.opentox.org/api/1.2#classValueStatistics"=>[{"http://www.opentox.org/api/1.2#classValue"=>"false", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassValueStatistics", "http://www.opentox.org/api/1.2#numFalsePositives"=>0, "http://www.opentox.org/api/1.2#numFalseNegatives"=>2, "http://www.opentox.org/api/1.2#numTruePositives"=>2, "http://www.opentox.org/api/1.2#numTrueNegatives"=>4, "http://www.opentox.org/api/1.2#areaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#falseNegativeRate"=>0.5, "http://www.opentox.org/api/1.2#falsePositiveRate"=>0.0, "http://www.opentox.org/api/1.2#fMeasure"=>0.6666666666666666, "http://www.opentox.org/api/1.2#positivePredictiveValue"=>1.0, "http://www.opentox.org/api/1.2#negativePredictiveValue"=>0.6666666666666666, "http://www.opentox.org/api/1.2#trueNegativeRate"=>1.0, "http://www.opentox.org/api/1.2#truePositiveRate"=>0.5}, {"http://www.opentox.org/api/1.2#classValue"=>"true", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassValueStatistics", "http://www.opentox.org/api/1.2#numFalsePositives"=>2, "http://www.opentox.org/api/1.2#numFalseNegatives"=>0, "http://www.opentox.org/api/1.2#numTruePositives"=>4, "http://www.opentox.org/api/1.2#numTrueNegatives"=>2, "http://www.opentox.org/api/1.2#areaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#falseNegativeRate"=>0.0, "http://www.opentox.org/api/1.2#falsePositiveRate"=>0.5, "http://www.opentox.org/api/1.2#fMeasure"=>0.8, "http://www.opentox.org/api/1.2#positivePredictiveValue"=>0.6666666666666666, "http://www.opentox.org/api/1.2#negativePredictiveValue"=>1.0, "http://www.opentox.org/api/1.2#trueNegativeRate"=>0.5, "http://www.opentox.org/api/1.2#truePositiveRate"=>1.0}]}}, @uri="https://isttest.opentox.org/validation/14">
+OpenTox::Validation
+http://purl.org/dc/terms/date
+{"http://www.opentox.org/api/1.2#validationType"=>"training_test_split", "http://www.opentox.org/api/1.2#model"=>"https://isttest.opentox.org/model/40c5c304-ca40-481f-9443-90987596288d", "http://www.opentox.org/api/1.2#algorithm"=>"https://isttest.opentox.org/algorithm/lazar", "http://www.opentox.org/api/1.2#algorithmParams"=>"feature_generation_uri=https://isttest.opentox.org/algorithm/fminer/bbrc", "http://www.opentox.org/api/1.2#trainingDataset"=>"https://isttest.opentox.org/dataset/901c23b1-43ad-4d98-a1a1-6d9d3ed7f192", "http://www.opentox.org/api/1.2#predictionFeature"=>"https://isttest.opentox.org/feature/c6347fb3-bfe1-4bed-b5c0-d221b48a6b4d", "http://www.opentox.org/api/1.2#testDataset"=>"https://isttest.opentox.org/dataset/eabf12a7-5066-4343-902e-b3b4657aa5bf", "http://www.opentox.org/api/1.2#predictionDataset"=>"https://isttest.opentox.org/dataset/9e9956a9-613b-4547-9caa-4b8bee3aebe2", "http://purl.org/dc/terms/date"=>"2013-12-24 05:37:47 +0100", "http://www.opentox.org/api/1.2#numInstances"=>"8", "http://www.opentox.org/api/1.2#numWithoutClass"=>"0", "http://www.opentox.org/api/1.2#numUnpredicted"=>"0", "http://www.opentox.org/api/1.2#realRuntime"=>"12.911741033", "http://www.opentox.org/api/1.2#percentWithoutClass"=>"0.0", "http://www.opentox.org/api/1.2#percentUnpredicted"=>"0.0", "http://www.opentox.org/api/1.2#classificationStatistics"=>{"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassificationStatistics", "http://www.opentox.org/api/1.2#numCorrect"=>6, "http://www.opentox.org/api/1.2#numIncorrect"=>2, "http://www.opentox.org/api/1.2#confusionMatrix"=>{"http://www.opentox.org/api/1.2#confusionMatrixCell"=>[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>2}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>2}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>0}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>4}], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrix"}, "http://www.opentox.org/api/1.2#percentCorrect"=>75.0, "http://www.opentox.org/api/1.2#percentIncorrect"=>25.0, "http://www.opentox.org/api/1.2#averageAreaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#accuracy"=>0.75, "http://www.opentox.org/api/1.2#weightedAccuracy"=>0.8484237121044902, "http://www.opentox.org/api/1.2#classValueStatistics"=>[{"http://www.opentox.org/api/1.2#classValue"=>"false", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassValueStatistics", "http://www.opentox.org/api/1.2#numFalsePositives"=>0, "http://www.opentox.org/api/1.2#numFalseNegatives"=>2, "http://www.opentox.org/api/1.2#numTruePositives"=>2, "http://www.opentox.org/api/1.2#numTrueNegatives"=>4, "http://www.opentox.org/api/1.2#areaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#falseNegativeRate"=>0.5, "http://www.opentox.org/api/1.2#falsePositiveRate"=>0.0, "http://www.opentox.org/api/1.2#fMeasure"=>0.6666666666666666, "http://www.opentox.org/api/1.2#positivePredictiveValue"=>1.0, "http://www.opentox.org/api/1.2#negativePredictiveValue"=>0.6666666666666666, "http://www.opentox.org/api/1.2#trueNegativeRate"=>1.0, "http://www.opentox.org/api/1.2#truePositiveRate"=>0.5}, {"http://www.opentox.org/api/1.2#classValue"=>"true", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassValueStatistics", "http://www.opentox.org/api/1.2#numFalsePositives"=>2, "http://www.opentox.org/api/1.2#numFalseNegatives"=>0, "http://www.opentox.org/api/1.2#numTruePositives"=>4, "http://www.opentox.org/api/1.2#numTrueNegatives"=>2, "http://www.opentox.org/api/1.2#areaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#falseNegativeRate"=>0.0, "http://www.opentox.org/api/1.2#falsePositiveRate"=>0.5, "http://www.opentox.org/api/1.2#fMeasure"=>0.8, "http://www.opentox.org/api/1.2#positivePredictiveValue"=>0.6666666666666666, "http://www.opentox.org/api/1.2#negativePredictiveValue"=>1.0, "http://www.opentox.org/api/1.2#trueNegativeRate"=>0.5, "http://www.opentox.org/api/1.2#truePositiveRate"=>1.0}]}}
+..test_validation_list
+.test_validation_report
+OpenTox::ValidationReport
+http://purl.org/dc/terms/date
+{"http://purl.org/dc/terms/date"=>"2013-12-24 05:38:35 +0100", "http://www.opentox.org/api/1.2#reportType"=>"validation", "http://www.opentox.org/api/1.2#validation"=>"[\"https://isttest.opentox.org/validation/14\"]", "http://www.opentox.org/api/1.2#crossvalidation"=>"[]", "http://www.opentox.org/api/1.2#algorithm"=>"[\"https://isttest.opentox.org/algorithm/lazar\"]", "http://www.opentox.org/api/1.2#model"=>"[\"https://isttest.opentox.org/model/40c5c304-ca40-481f-9443-90987596288d\"]"}
+delete and logout
+.
+
+Finished in 72.584265s, 0.1240 runs/s, 0.3582 assertions/s.
+
+9 runs, 26 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: authorization.rb ==================
+Run options: --seed 2122
+
+# Running:
+
+............
+
+Finished in 12.996436s, 0.9233 runs/s, 2.6161 assertions/s.
+
+12 runs, 34 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: edit_objects.rb ==================
+Run options: --seed 766
+
+# Running:
+
+.
+
+Finished in 0.836770s, 1.1951 runs/s, 4.7803 assertions/s.
+
+1 runs, 4 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: lazar-physchem.rb ==================
+Run options: --seed 34361
+
+# Running:
+
+https://isttest.opentox.org/model/bafab618-5475-4b14-8cfa-af7ec669b360
+https://isttest.opentox.org/dataset/bfe2cb29-3101-48af-8aa6-5de76a78f5a4
+.
+
+Finished in 41.748925s, 0.0240 runs/s, 0.0719 assertions/s.
+
+1 runs, 3 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: store_query.rb ==================
+Run options: --seed 2734
+
+# Running:
+
+........
+
+Finished in 49.106659s, 0.1629 runs/s, 6.6793 assertions/s.
+
+8 runs, 328 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: validation_util.rb ==================
+=============== Test: compound.rb ==================
+Service URI is: https://isttest.opentox.org/compound
+Run options: --seed 26633
+
+# Running:
+
+....https://isttest.opentox.org/compound/InChI=1S/C6H6/c1-2-4-6-5-3-1/h1-6H
+.....
+
+Finished in 12.253457s, 0.7345 runs/s, 1.2241 assertions/s.
+
+9 runs, 15 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: error.rb ==================
+Run options: --seed 14864
+
+# Running:
+
+....
+
+Finished in 0.835929s, 4.7851 runs/s, 5.9814 assertions/s.
+
+4 runs, 5 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: lazarweb.rb ==================
+Run options: --seed 54753
+
+# Running:
+
+.
+
+Finished in 0.072946s, 13.7087 runs/s, 82.2522 assertions/s.
+
+1 runs, 6 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: task.rb ==================
+Service URI is: https://isttest.opentox.org/task
+Run options: --seed 40641
+
+# Running:
+
+.............
+
+Finished in 232.433233s, 0.0559 runs/s, 1.2477 assertions/s.
+
+13 runs, 290 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: dataset-long.rb ==================
+Service URI is: https://isttest.opentox.org/dataset
+Run options: --seed 63594
+
+# Running:
+
+.https://isttest.opentox.org/dataset/e60e5633-1659-4991-920e-0938527c04b5
+....
+
+Finished in 47.228418s, 0.1059 runs/s, 0.9528 assertions/s.
+
+5 runs, 45 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: feature.rb ==================
+Run options: --seed 6458
+
+# Running:
+
+..Create SPARQL: 0.000160021
+Query: 0.068596635
+Found: 5.4496e-05
+.
+
+Finished in 8.765016s, 0.3423 runs/s, 8.4427 assertions/s.
+
+3 runs, 74 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: model.rb ==================
+Service URI is: https://isttest.opentox.org/model
+Run options: --seed 11874
+
+# Running:
+
+.https://isttest.opentox.org/model/25425dc5-61b4-4c6b-a4da-9f370bfe9bbc
+.
+
+Finished in 6.431829s, 0.3110 runs/s, 2.3322 assertions/s.
+
+2 runs, 15 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: dataset.rb ==================
+Run options: --seed 19648
+
+# Running:
+
+............
+
+Finished in 69.032021s, 0.1738 runs/s, 1.5065 assertions/s.
+
+12 runs, 104 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: fminer.rb ==================
+Run options: --seed 53658
+
+# Running:
+
+..
+
+Finished in 49.212891s, 0.0406 runs/s, 93.4714 assertions/s.
+
+2 runs, 4600 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: policy.rb ==================
+Run options: --seed 11593
+
+# Running:
+
+......
+
+Finished in 0.050952s, 117.7573 runs/s, 942.0584 assertions/s.
+
+6 runs, 48 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: urilist.rb ==================
+Run options: --seed 49257
+
+# Running:
+
+..
+
+Finished in 0.597242s, 3.3487 runs/s, 38.5104 assertions/s.
+
+2 runs, 23 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: descriptor-long.rb ==================
+Service URI is: https://isttest.opentox.org/algorithm
+Run options: --seed 26079
+
+# Running:
+
+.
+
+Finished in 293.908241s, 0.0034 runs/s, 0.0068 assertions/s.
+
+1 runs, 2 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: lazar-fminer.rb ==================
+Run options: --seed 57720
+
+# Running:
+
+.
+
+Finished in 89.587702s, 0.0112 runs/s, 0.1563 assertions/s.
+
+1 runs, 14 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: service_check.rb ==================
+Service URIs are:
+https://isttest.opentox.org/algorithm
+https://isttest.opentox.org/compound
+https://isttest.opentox.org/dataset
+https://isttest.opentox.org/feature
+https://isttest.opentox.org/model
+https://isttest.opentox.org/task
+https://isttest.opentox.org/validation
+Run options: --seed 32816
+
+# Running:
+
+.......
+
+Finished in 1.667059s, 4.1990 runs/s, 4.1990 assertions/s.
+
+7 runs, 7 assertions, 0 failures, 0 errors, 0 skips
+=============== Test: validation-long.rb ==================
+Service URI is: https://isttest.opentox.org/validation
+Run options: --seed 50854
+
+# Running:
+
+login and upload datasets
+logged in: AQIC5wM2LY4Sfcy9YdIRKV8AQoPEuRkt1moAy05qAbtenjo.*AAJTSQACMDE.*
+uploading file: /home/ist/opentox-ruby/opentox-test/test/data/hamster_carcinogenicity.csv
+uploaded dataset: https://isttest.opentox.org/dataset/646d7f0f-05ac-4ffd-8dc3-a6e06a57e1c4
+file already uploaded: https://isttest.opentox.org/dataset/646d7f0f-05ac-4ffd-8dc3-a6e06a57e1c4
+.test_crossvalidation /home/ist/opentox-ruby/opentox-test/test/data/hamster_carcinogenicity.csv bbrc
+OpenTox::Crossvalidation
+http://purl.org/dc/terms/date
+{"http://www.opentox.org/api/1.2#algorithm"=>"https://isttest.opentox.org/algorithm/lazar", "http://www.opentox.org/api/1.2#algorithmParams"=>"feature_generation_uri=https://isttest.opentox.org/algorithm/fminer/bbrc", "http://www.opentox.org/api/1.2#predictionFeature"=>"https://isttest.opentox.org/feature/c6347fb3-bfe1-4bed-b5c0-d221b48a6b4d", "http://purl.org/dc/terms/date"=>"2013-12-24 05:54:37 +0100", "http://www.opentox.org/api/1.2#dataset"=>"https://isttest.opentox.org/dataset/646d7f0f-05ac-4ffd-8dc3-a6e06a57e1c4", "http://www.opentox.org/api/1.2#numFolds"=>"10", "http://www.opentox.org/api/1.2#stratified"=>"false", "http://www.opentox.org/api/1.2#randomSeed"=>"1", "http://www.opentox.org/api/1.2#validation"=>["https://isttest.opentox.org/validation/15", "https://isttest.opentox.org/validation/16", "https://isttest.opentox.org/validation/17", "https://isttest.opentox.org/validation/18", "https://isttest.opentox.org/validation/19", "https://isttest.opentox.org/validation/20", "https://isttest.opentox.org/validation/21", "https://isttest.opentox.org/validation/22", "https://isttest.opentox.org/validation/23", "https://isttest.opentox.org/validation/24"]}
+..test_crossvalidation_list
+.test_crossvalidation_report
+OpenTox::CrossvalidationReport
+http://purl.org/dc/terms/date
+{"http://purl.org/dc/terms/date"=>"2013-12-24 06:02:46 +0100", "http://www.opentox.org/api/1.2#reportType"=>"crossvalidation", "http://www.opentox.org/api/1.2#validation"=>"[\"https://isttest.opentox.org/validation/15\", \"https://isttest.opentox.org/validation/16\", \"https://isttest.opentox.org/validation/17\", \"https://isttest.opentox.org/validation/18\", \"https://isttest.opentox.org/validation/19\", \"https://isttest.opentox.org/validation/20\", \"https://isttest.opentox.org/validation/21\", \"https://isttest.opentox.org/validation/22\", \"https://isttest.opentox.org/validation/23\", \"https://isttest.opentox.org/validation/24\"]", "http://www.opentox.org/api/1.2#crossvalidation"=>"[\"https://isttest.opentox.org/validation/crossvalidation/2\"]", "http://www.opentox.org/api/1.2#algorithm"=>"[\"https://isttest.opentox.org/algorithm/lazar\"]", "http://www.opentox.org/api/1.2#model"=>"[\"https://isttest.opentox.org/model/daff3745-9483-40c6-b4a2-b450f96acb66\", \"https://isttest.opentox.org/model/c99ab11b-f5e1-4790-a52c-ab5cc048c03b\", \"https://isttest.opentox.org/model/3eb3d1eb-ab45-42fb-869b-8a8d3b1a9f92\", \"https://isttest.opentox.org/model/5fc3bbfb-7422-4462-8478-9a5f78a17924\", \"https://isttest.opentox.org/model/66491e85-8ab6-4c3b-ac7f-688d360c9111\", \"https://isttest.opentox.org/model/20f4b3c9-d39b-4a8f-ba59-2c5032e8880d\", \"https://isttest.opentox.org/model/2771cada-0376-46d9-947e-b01a53908109\", \"https://isttest.opentox.org/model/9cde40cb-6963-4d7d-a0bd-146bb019192d\", \"https://isttest.opentox.org/model/6978e114-5111-42f5-93e9-551e281727a1\", \"https://isttest.opentox.org/model/f058057e-d07b-4a24-852b-a95ef6f56b58\"]"}
+.test_training_test_split /home/ist/opentox-ruby/opentox-test/test/data/hamster_carcinogenicity.csv
+#<OpenTox::Validation:0x007f6279d03530 @metadata={"http://www.opentox.org/api/1.2#validationType"=>"training_test_split", "http://www.opentox.org/api/1.2#model"=>"https://isttest.opentox.org/model/90c4fdad-a34c-4ff6-ad58-e22787ef0fb8", "http://www.opentox.org/api/1.2#algorithm"=>"https://isttest.opentox.org/algorithm/lazar", "http://www.opentox.org/api/1.2#algorithmParams"=>"feature_generation_uri=https://isttest.opentox.org/algorithm/fminer/bbrc", "http://www.opentox.org/api/1.2#trainingDataset"=>"https://isttest.opentox.org/dataset/160d991a-de6b-4da6-968c-cfd7291d6d1a", "http://www.opentox.org/api/1.2#predictionFeature"=>"https://isttest.opentox.org/feature/c6347fb3-bfe1-4bed-b5c0-d221b48a6b4d", "http://www.opentox.org/api/1.2#testDataset"=>"https://isttest.opentox.org/dataset/26fb0a46-3f04-49a8-94f6-79e595f77106", "http://www.opentox.org/api/1.2#predictionDataset"=>"https://isttest.opentox.org/dataset/ebb723a3-390a-4441-90a8-bb262f1ffe0a", "http://purl.org/dc/terms/date"=>"2013-12-24 06:03:00 +0100", "http://www.opentox.org/api/1.2#numInstances"=>"8", "http://www.opentox.org/api/1.2#numWithoutClass"=>"0", "http://www.opentox.org/api/1.2#numUnpredicted"=>"0", "http://www.opentox.org/api/1.2#realRuntime"=>"14.163552474", "http://www.opentox.org/api/1.2#percentWithoutClass"=>"0.0", "http://www.opentox.org/api/1.2#percentUnpredicted"=>"0.0", "http://www.opentox.org/api/1.2#classificationStatistics"=>{"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassificationStatistics", "http://www.opentox.org/api/1.2#numCorrect"=>6, "http://www.opentox.org/api/1.2#numIncorrect"=>2, "http://www.opentox.org/api/1.2#confusionMatrix"=>{"http://www.opentox.org/api/1.2#confusionMatrixCell"=>[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>2}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>2}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>0}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>4}], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrix"}, "http://www.opentox.org/api/1.2#percentCorrect"=>75.0, "http://www.opentox.org/api/1.2#percentIncorrect"=>25.0, "http://www.opentox.org/api/1.2#averageAreaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#accuracy"=>0.75, "http://www.opentox.org/api/1.2#weightedAccuracy"=>0.8484237121044902, "http://www.opentox.org/api/1.2#classValueStatistics"=>[{"http://www.opentox.org/api/1.2#classValue"=>"false", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassValueStatistics", "http://www.opentox.org/api/1.2#numFalsePositives"=>0, "http://www.opentox.org/api/1.2#numFalseNegatives"=>2, "http://www.opentox.org/api/1.2#numTruePositives"=>2, "http://www.opentox.org/api/1.2#numTrueNegatives"=>4, "http://www.opentox.org/api/1.2#areaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#falseNegativeRate"=>0.5, "http://www.opentox.org/api/1.2#falsePositiveRate"=>0.0, "http://www.opentox.org/api/1.2#fMeasure"=>0.6666666666666666, "http://www.opentox.org/api/1.2#positivePredictiveValue"=>1.0, "http://www.opentox.org/api/1.2#negativePredictiveValue"=>0.6666666666666666, "http://www.opentox.org/api/1.2#trueNegativeRate"=>1.0, "http://www.opentox.org/api/1.2#truePositiveRate"=>0.5}, {"http://www.opentox.org/api/1.2#classValue"=>"true", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassValueStatistics", "http://www.opentox.org/api/1.2#numFalsePositives"=>2, "http://www.opentox.org/api/1.2#numFalseNegatives"=>0, "http://www.opentox.org/api/1.2#numTruePositives"=>4, "http://www.opentox.org/api/1.2#numTrueNegatives"=>2, "http://www.opentox.org/api/1.2#areaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#falseNegativeRate"=>0.0, "http://www.opentox.org/api/1.2#falsePositiveRate"=>0.5, "http://www.opentox.org/api/1.2#fMeasure"=>0.8, "http://www.opentox.org/api/1.2#positivePredictiveValue"=>0.6666666666666666, "http://www.opentox.org/api/1.2#negativePredictiveValue"=>1.0, "http://www.opentox.org/api/1.2#trueNegativeRate"=>0.5, "http://www.opentox.org/api/1.2#truePositiveRate"=>1.0}]}}, @uri="https://isttest.opentox.org/validation/26">
+OpenTox::Validation
+http://purl.org/dc/terms/date
+{"http://www.opentox.org/api/1.2#validationType"=>"training_test_split", "http://www.opentox.org/api/1.2#model"=>"https://isttest.opentox.org/model/90c4fdad-a34c-4ff6-ad58-e22787ef0fb8", "http://www.opentox.org/api/1.2#algorithm"=>"https://isttest.opentox.org/algorithm/lazar", "http://www.opentox.org/api/1.2#algorithmParams"=>"feature_generation_uri=https://isttest.opentox.org/algorithm/fminer/bbrc", "http://www.opentox.org/api/1.2#trainingDataset"=>"https://isttest.opentox.org/dataset/160d991a-de6b-4da6-968c-cfd7291d6d1a", "http://www.opentox.org/api/1.2#predictionFeature"=>"https://isttest.opentox.org/feature/c6347fb3-bfe1-4bed-b5c0-d221b48a6b4d", "http://www.opentox.org/api/1.2#testDataset"=>"https://isttest.opentox.org/dataset/26fb0a46-3f04-49a8-94f6-79e595f77106", "http://www.opentox.org/api/1.2#predictionDataset"=>"https://isttest.opentox.org/dataset/ebb723a3-390a-4441-90a8-bb262f1ffe0a", "http://purl.org/dc/terms/date"=>"2013-12-24 06:03:00 +0100", "http://www.opentox.org/api/1.2#numInstances"=>"8", "http://www.opentox.org/api/1.2#numWithoutClass"=>"0", "http://www.opentox.org/api/1.2#numUnpredicted"=>"0", "http://www.opentox.org/api/1.2#realRuntime"=>"14.163552474", "http://www.opentox.org/api/1.2#percentWithoutClass"=>"0.0", "http://www.opentox.org/api/1.2#percentUnpredicted"=>"0.0", "http://www.opentox.org/api/1.2#classificationStatistics"=>{"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassificationStatistics", "http://www.opentox.org/api/1.2#numCorrect"=>6, "http://www.opentox.org/api/1.2#numIncorrect"=>2, "http://www.opentox.org/api/1.2#confusionMatrix"=>{"http://www.opentox.org/api/1.2#confusionMatrixCell"=>[{"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>2}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>2}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"false", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>0}, {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrixCell", "http://www.opentox.org/api/1.2#confusionMatrixActual"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixPredicted"=>"true", "http://www.opentox.org/api/1.2#confusionMatrixValue"=>4}], "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ConfusionMatrix"}, "http://www.opentox.org/api/1.2#percentCorrect"=>75.0, "http://www.opentox.org/api/1.2#percentIncorrect"=>25.0, "http://www.opentox.org/api/1.2#averageAreaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#accuracy"=>0.75, "http://www.opentox.org/api/1.2#weightedAccuracy"=>0.8484237121044902, "http://www.opentox.org/api/1.2#classValueStatistics"=>[{"http://www.opentox.org/api/1.2#classValue"=>"false", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassValueStatistics", "http://www.opentox.org/api/1.2#numFalsePositives"=>0, "http://www.opentox.org/api/1.2#numFalseNegatives"=>2, "http://www.opentox.org/api/1.2#numTruePositives"=>2, "http://www.opentox.org/api/1.2#numTrueNegatives"=>4, "http://www.opentox.org/api/1.2#areaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#falseNegativeRate"=>0.5, "http://www.opentox.org/api/1.2#falsePositiveRate"=>0.0, "http://www.opentox.org/api/1.2#fMeasure"=>0.6666666666666666, "http://www.opentox.org/api/1.2#positivePredictiveValue"=>1.0, "http://www.opentox.org/api/1.2#negativePredictiveValue"=>0.6666666666666666, "http://www.opentox.org/api/1.2#trueNegativeRate"=>1.0, "http://www.opentox.org/api/1.2#truePositiveRate"=>0.5}, {"http://www.opentox.org/api/1.2#classValue"=>"true", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"=>"http://www.opentox.org/api/1.2#ClassValueStatistics", "http://www.opentox.org/api/1.2#numFalsePositives"=>2, "http://www.opentox.org/api/1.2#numFalseNegatives"=>0, "http://www.opentox.org/api/1.2#numTruePositives"=>4, "http://www.opentox.org/api/1.2#numTrueNegatives"=>2, "http://www.opentox.org/api/1.2#areaUnderRoc"=>1.0, "http://www.opentox.org/api/1.2#falseNegativeRate"=>0.0, "http://www.opentox.org/api/1.2#falsePositiveRate"=>0.5, "http://www.opentox.org/api/1.2#fMeasure"=>0.8, "http://www.opentox.org/api/1.2#positivePredictiveValue"=>0.6666666666666666, "http://www.opentox.org/api/1.2#negativePredictiveValue"=>1.0, "http://www.opentox.org/api/1.2#trueNegativeRate"=>0.5, "http://www.opentox.org/api/1.2#truePositiveRate"=>1.0}]}}
+..test_validation_list
+.test_validation_report
+OpenTox::ValidationReport
+http://purl.org/dc/terms/date
+{"http://purl.org/dc/terms/date"=>"2013-12-24 06:03:44 +0100", "http://www.opentox.org/api/1.2#reportType"=>"validation", "http://www.opentox.org/api/1.2#validation"=>"[\"https://isttest.opentox.org/validation/26\"]", "http://www.opentox.org/api/1.2#crossvalidation"=>"[]", "http://www.opentox.org/api/1.2#algorithm"=>"[\"https://isttest.opentox.org/algorithm/lazar\"]", "http://www.opentox.org/api/1.2#model"=>"[\"https://isttest.opentox.org/model/90c4fdad-a34c-4ff6-ad58-e22787ef0fb8\"]"}
+delete and logout
+E
+
+Finished in 558.027051s, 0.0161 runs/s, 0.1075 assertions/s.
+
+  1) Error:
+ValidationTest#test_validation_report:
+OpenTox::UnauthorizedError: Not authorized https://isttest.opentox.org/dataset/646d7f0f-05ac-4ffd-8dc3-a6e06a57e1c4 with request: DELETE
+error-cause:
+/home/ist/opentox-ruby/opentox-server/lib/authorization-helper.rb:60:in `protected!'
+/home/ist/opentox-ruby/opentox-server/lib/authorization-helper.rb:130:in `block in <class:Application>'
+
+    /home/ist/opentox-ruby/opentox-client/lib/error.rb:95:in `block (2 levels) in <module:OpenTox>'
+    /home/ist/opentox-ruby/opentox-client/lib/rest-client-wrapper.rb:74:in `call'
+    /home/ist/opentox-ruby/opentox-client/lib/rest-client-wrapper.rb:74:in `block (3 levels) in <class:RestClientWrapper>'
+    /home/ist/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/rest-client-1.6.7/lib/restclient/request.rb:228:in `call'
+    /home/ist/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/rest-client-1.6.7/lib/restclient/request.rb:228:in `process_result'
+    /home/ist/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/rest-client-1.6.7/lib/restclient/request.rb:178:in `block in transmit'
+    /home/ist/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/net/http.rb:852:in `start'
+    /home/ist/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/rest-client-1.6.7/lib/restclient/request.rb:172:in `transmit'
+    /home/ist/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/rest-client-1.6.7/lib/restclient/request.rb:64:in `execute'
+    /home/ist/opentox-ruby/opentox-client/lib/rest-client-wrapper.rb:52:in `block (2 levels) in <class:RestClientWrapper>'
+    /home/ist/opentox-ruby/opentox-client/lib/opentox.rb:123:in `delete'
+    validation-long.rb:64:in `block (2 levels) in global_teardown'
+    validation-long.rb:63:in `each'
+    validation-long.rb:63:in `block in global_teardown'
+    validation-long.rb:62:in `each'
+    validation-long.rb:62:in `global_teardown'
+    validation-long.rb:456:in `teardown'
+
+9 runs, 60 assertions, 0 failures, 1 errors, 0 skips
+End of nightly test script
